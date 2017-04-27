@@ -18,46 +18,76 @@ package org.jsmpp.util;
  * @author uudashr
  * @version 1.0
  * @since 1.0
- * 
+ *
  */
 public enum DeliveryReceiptState {
     /**
      * ENROUTE
      */
-    ENROUTE(0),
+    ENROUTE(0,false),
     /**
      * DELIVERED
      */
-    DELIVRD(1),
+    DELIVRD(1,true),
     /**
      * EXPIRED
      */
-    EXPIRED(2),
+    EXPIRED(2,true),
     /**
      * DELETED
      */
-    DELETED(3),
+    DELETED(3,true),
     /**
      * UNDELIVERABLE
      */
-    UNDELIV(4),
+    UNDELIV(4,true),
     /**
      * ACCEPTED
      */
-    ACCEPTD(5),
+    ACCEPTD(5,false),
     /**
      * UNKNOWN
      */
-    UNKNOWN(6),
+    UNKNOWN(6,true),
     /**
      * REJECTED
      */
-    REJECTD(7);
+    REJECTD(7,true),
+    /**
+     * BUFFERED
+     */
+    BUFFERED(8,false),
+    /**
+     * FAILED
+     */
+    FAILED(9,true),
+    /**
+     * FAILURE
+     */
+    FAILURE(10,true),
+    /**
+     * FNOTSUP
+     */
+    FNOTSUP(11,true),
+    /**
+     * INVALID
+     */
+    INVALID(12,true),
+    /**
+     * UNDELIVERABLE
+     */
+    UNDELIVERABLE(13,true),
+    /**
+     * QUEUED
+     */
+    QUEUED(14,false);
 
     private int value;
+    private boolean isFinal;
 
-    DeliveryReceiptState(int value) {
+    DeliveryReceiptState(int value, boolean isFinal) {
         this.value = value;
+        this.isFinal = isFinal;
     }
 
     public static DeliveryReceiptState getByName(String name) {
@@ -78,4 +108,9 @@ public enum DeliveryReceiptState {
     public int value() {
         return value;
     }
+
+    public boolean isFinal() {
+        return isFinal;
+    }
+
 }
