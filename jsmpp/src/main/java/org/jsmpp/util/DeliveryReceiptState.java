@@ -54,9 +54,9 @@ public enum DeliveryReceiptState {
      */
     REJECTD(7,true),
     /**
-     * BUFFERED
+     * BUFFERD
      */
-    BUFFERED(8,false),
+    BUFFERD(8,false),
     /**
      * FAILED
      */
@@ -80,7 +80,19 @@ public enum DeliveryReceiptState {
     /**
      * QUEUED
      */
-    QUEUED(14,false);
+    QUEUED(14,false),
+    /**
+     * SUBMITTED_TO_ROUTEE
+     */
+    SUBMITTED_TO_ROUTEE(15,false),
+    /**
+     * PROCCESSING_MESSAGE
+     */
+    PROCCESSING_MESSAGE(16,false),
+    /**
+     * WRITTEN_TO_SQL_BOX
+     */
+    WRITTEN_TO_SQL_BOX(17,false);
 
     private int value;
     private boolean isFinal;
